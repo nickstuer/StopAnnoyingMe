@@ -2,7 +2,7 @@
 ## Title: StopAnnoyingMe
 ## Version: 1.0.0
 ## Author: Nick Stuer
-## IconTexture: Interface\AddOns\FriendAlerts\Media\Icon.tga
+## IconTexture: Interface\AddOns\StopAnnoyingMe\Media\Icon.tga
 
 ## SavedVariables: StopAnnoyingMeDB
 

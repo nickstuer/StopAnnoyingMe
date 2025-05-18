@@ -3,22 +3,28 @@
 
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/nickstuer/stopannoyingme)](https://github.com/nickstuer/stopannoyingme/commits/master) [![Last commit](https://img.shields.io/github/last-commit/nickstuer/FriendAlerts)](https://github.com/nickstuer/stopannoyingme)
 
-A World of Warcraft addon to suppress annoyances that other players cause, such as toy noises, toys, and more.
+A World of Warcraft addon that suppresses annoyances that other players cause, such as toy noises, toys, and more.
 
 ## Table of Contents
 
 - [Features](https://github.com/nickstuer/stopannoyingme?tab=readme-ov-file#-features)
 - [Install](https://github.com/nickstuer/stopannoyingme?tab=readme-ov-file#-install)
-- [Usage](https://github.com/nickstuer/stopannoyingme?tab=readme-ov-file#-usage)
-- [Development](https://github.com/nickstuer/stopannoyingme?tab=readme-ov-file#-development)
-- [Contributing](https://github.com/nickstuer/stopannoyingme?tab=readme-ov-file#-contributing)
-
-## 📌 Examples
-
 
 ## 📖 Features
 
+### Mute Anoying Toy Sounds
+- Candleflexer's Dumbbell Toy
 
+### Automatically Remove Buffs
+- Jack-o'-Lanterned
+- Bat Costume
+- Ghost Costume
+- Leper Gnome Costume
+- Pirate Costume
+- Skeleton Costume
+- Wisp Costume
+- Ninja Costume
+- Plus Many More
 
 
 ## 🛠 Install
@@ -28,14 +34,11 @@ A World of Warcraft addon to suppress annoyances that other players cause, such 
 3. Ensure the addon is enabled on the character selection screen
 ```
 
-## 🎮Usage
-
-
 #### Bug Reports and Feature Requests
 Please use the [issue tracker](https://github.com/nickstuer/stopannoyingme/issues) to report any bugs or request new features.
 
 #### Contributors
 
 <a href = "https://github.com/nickstuer/stopannoyingme/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo=nickstuer/fstopannoyingme"/>
+  <img src = "https://contrib.rocks/image?repo=nickstuer/stopannoyingme"/>
 </a>
