@@ -9,7 +9,8 @@ FR.addonName = addonName;
 
 FR.defaults = {
 	SoundsToBlock = {
-  		["3748753"] = true, --Candleflexer's Dumbbell Toy
+  		["3748753"] = true, --Candleflexer's Dumbbell Toy Slam
+		["1255481"]	= true, --Candleflexer's Dumbbell Toy Growl
 	}
 }
 
@@ -101,6 +102,7 @@ local spell = {
 [44755] = true, --Snowflakes
 [61815] = true, --Sprung!
 [61781] = true, --Turkey Feathers
+[279509] = true, -- Witch
 }
 
 removeBuff:SetScript("OnEvent", function(self, event, unit)
