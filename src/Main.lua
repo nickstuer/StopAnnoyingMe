@@ -6,39 +6,148 @@ FR.Utils = Utils
 FR.version = C_AddOns.GetAddOnMetadata("StopAnnoyingMe", "Version") or "Unknown"
 FR.addonName = addonName;
 
-
 FR.defaults = {
 	SoundsToMute = {
-  		[3748753] = true, --Candleflexer's Dumbbell Toy Slam
-		[1255481] = true, --Candleflexer's Dumbbell Toy Growl
+		[0] = {
+			name = "Candleflexer's Dumbbell Toy",
+			spellID = 656322,
+			soundIDs = "3748753,1255481",
+			enabled = true,
+		}
 	},
 	SpellsToRemove = {
-		[44212] = true, --Jack-o'-Lanterned!
-		[44185] = true, --Jack-o'-Lanterned!
-		[24732] = true, --Bat Costume
-		[24735] = true, --Ghost Costume
-		[24736] = true, --Ghost Costume
-		[24712] = true, --Leper Gnome Costume
-		[24713] = true, --Leper Gnome Costume
-		[24708] = true, --Pirate Costume
-		[24709] = true, --Pirate Costume
-		[24723] = true, --Skeleton Costume
-		[24740] = true, --Wisp Costume
-		[27571] = true, --Cascade of Roses
-		[61819] = true, --Manabonked!
-		[61834] = true, --Manabonked!
-		[69285] = true, --Mohawked!
-		[24710] = true, --Ninja Costume
-		[60122] = true, --Baby Spice
-		[60106] = true, --Old Spice
-		[26157] = true, --PX-238 Winter Wondervolt
-		[44755] = true, --Snowflakes
-		[61815] = true, --Sprung!
-		[61781] = true, --Turkey Feathers
-		[279509] = true, -- Witch
-		[58493] = true, -- Mohawk Grenade
+		[0] = {
+			name = "Jack-o'-Lanterned!",
+			spellID = 44212,
+			enabled = true,
+		},
+		[1] = {
+			name = "Jack-o'-Lanterned!",
+			spellID = 44185,
+			enabled = true,
+		},
+		[2] = {
+			name = "Bat Costume",
+			spellID = 24732,
+			enabled = true,
+		},
+		[3] = {
+			name = "Ghost Costume",
+			spellID = 24735,
+			enabled = true,
+		},
+		[4] = {
+			name = "Ghost Costume",
+			spellID = 24736,
+			enabled = true,
+		},
+		[5] = {
+			name = "Leper Gnome Costume",
+			spellID = 24712,
+			enabled = true,
+		},
+		[6] = {
+			name = "Leper Gnome Costume",
+			spellID = 24713,
+			enabled = true,
+		},
+		[7] = {
+			name = "Pirate Costume",
+			spellID = 24708,
+			enabled = true,
+		},
+		[8] = {
+			name = "Pirate Costume",
+			spellID = 24709,
+			enabled = true,
+		},
+		[9] = {
+			name = "Skeleton Costume",
+			spellID = 24723,
+			enabled = true,
+		},
+		[10] = {
+			name = "Wisp Costume",
+			spellID = 24740,
+			enabled = true,
+		},
+		[11] = {
+			name = "Cascade of Roses",
+			spellID = 27571,
+			enabled = true,
+		},
+		[12] = {
+			name = "Manabonked!",
+			spellID = 61819,
+			enabled = true,
+		},
+		[13] = {
+			name = "Manabonked!",
+			spellID = 61834,
+			enabled = true,
+		},
+		[14] = {
+			name = "Mohawked!",
+			spellID = 69285,
+			enabled = true,
+		},
+		[15] = {
+			name = "Ninja Costume",
+			spellID = 24710,
+			enabled = true,
+		},
+		[16] = {
+			name= "Baby Spice",
+			spellID= 60122,
+			enabled= true
+		},
+		[17] = {
+			name= "Old Spice",
+			spellID = 60106,
+			enabled = true
+		},
+		[18] = {
+			name= "PX-238 Winter Wondervolt",
+			spellID = 26157,
+			enabled = true
+		},
+		[19] = {
+			name= "Snowflakes",
+			spellID= 44755,
+			enabled= true
+		},
+		[20] = {
+			name= "Sprung!",
+			spellID = 61815,
+			enabled = true
+		},
+		[21] = {
+			name= "Turkey Feathers",
+			spellID= 61781,
+			enabled= true
+		},
+		[22] = {
+			name= "Witch",
+			spellID = 279509,
+			enabled = true
+		},
+		[23] = {
+			name= "Mohawk Grenade",
+			spellID = 58493,
+			enabled = true
+		}
+	},
+	options = {
+		onLoginMessage = true,
+		manuallyBlockedSoundIDs = "",
+		manuallyBlockedSpellIDs = "",
+	},
+	config = {
+		databaseVersion = 1,
 	}
 }
+
+local buffsToRemove = {}
 
 local initFrame = CreateFrame("Frame")
 initFrame:RegisterEvent("ADDON_LOADED")
@@ -78,17 +187,29 @@ initFrame:SetScript("OnEvent", function(self, event, arg1)
 	end
 
 	if event == "PLAYER_ENTERING_WORLD" then
-		Utils.Print("Addon Loaded. Version: " .. FR.version)
-
+		if StopAnnoyingMeDB.options.onLoginMessage then
+			Utils.Print("Addon Loaded. Version: " .. FR.version)
+		end
+		
 		-- Mute Sounds
 		for k, v in pairs(StopAnnoyingMeDB.SoundsToMute) do
-			if v then
-				MuteSoundFile(k)
+			if v.enabled then
+				local soundIDs = Utils.SplitByCommas(v.soundIDs)
+				for _, soundID in ipairs(soundIDs) do
+					MuteSoundFile(soundID)
+				end
+
+			end
+		end
+
+		-- Check spells to remove and save enabled buffs to local table
+		for k, v in pairs(StopAnnoyingMeDB.SpellsToRemove) do
+			if v.enabled then
+				buffsToRemove[v.spellID] = true
 			end
 		end
 
 		self:UnregisterEvent("PLAYER_ENTERING_WORLD")
-		
     end
 end)
 
@@ -116,7 +237,7 @@ removeBuff:SetScript("OnEvent", function(self, event, unit)
         local i = 1
         local aura = C_UnitAuras.GetBuffDataByIndex("player", i)
         while aura do
-            if StopAnnoyingMeDB.SpellsToRemove[aura.spellId] then
+            if buffsToRemove[aura.spellId] then
                 CancelUnitBuff("player", i)
 
 				local auraInfo = C_UnitAuras.GetPlayerAuraBySpellID(aura.spellId)

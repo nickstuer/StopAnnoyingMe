@@ -40,4 +40,18 @@ function Utils.SplitByCommas(str)
     return results
 end
 
+function Utils.LoopTable(t, indent)
+    indent = indent or 0
+    local prefix = string.rep("  ", indent)
+
+    for key, value in pairs(t) do
+        if type(value) == "table" then
+            print(prefix .. tostring(key) .. " (table):")
+            Utils.LoopTable(value, indent + 1)
+        else
+            print(prefix .. tostring(key) .. ": " .. tostring(value))
+        end
+    end
+end
+
 return Utils
