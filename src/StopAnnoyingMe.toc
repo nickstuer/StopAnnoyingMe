@@ -4,10 +4,15 @@
 ## Author: Nick Stuer
 ## IconTexture: Interface\AddOns\StopAnnoyingMe\Media\Icon.tga
 
-## SavedVariables: StopAnnoyingMeDB
+## SavedVariables: SAMDB
 
 ## Category-enUS: Plunger
 
 Core/Config.lua
 Core/Utils.lua
+Core/UIHelper.lua
+Settings/AboutUI.lua
+Settings/SupportUI.lua
+Settings/SoundsUI.lua
+Settings/SpellsUI.lua
 Main.lua
