@@ -19,12 +19,12 @@ FR.defaults = {
 		[1] = {
 			name = "Jack-o'-Lanterned!",
 			spellID = 44212,
-			enabled = true,
+			enabled = false,
 		},
 		[2] = {
 			name = "Jack-o'-Lanterned!",
 			spellID = 44185,
-			enabled = true,
+			enabled = false,
 		},
 		[3] = {
 			name = "Bat Costume",
