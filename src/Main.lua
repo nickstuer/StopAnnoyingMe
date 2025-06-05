@@ -135,6 +135,11 @@ FR.defaults = {
 			name= "Mohawk Grenade",
 			spellID = 58493,
 			enabled = true
+		},
+		[25] = {
+			name= "Detoxified Blight",
+			spellID = 290224,
+			enabled = true
 		}
 	},
 	options = {
