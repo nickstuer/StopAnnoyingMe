@@ -99,27 +99,27 @@ FR.defaults = {
 		[17] = {
 			name= "Baby Spice",
 			spellID= 60122,
-			enabled= true
+			enabled= true,
 		},
 		[18] = {
 			name= "Old Spice",
 			spellID = 60106,
-			enabled = true
+			enabled = true,
 		},
 		[19] = {
 			name= "PX-238 Winter Wondervolt",
 			spellID = 26157,
-			enabled = true
+			enabled = true,
 		},
 		[20] = {
 			name= "Snowflakes",
 			spellID= 44755,
-			enabled= true
+			enabled= true,
 		},
 		[21] = {
 			name= "Sprung!",
 			spellID = 61815,
-			enabled = true
+			enabled = true,
 		},
 		[22] = {
 			name= "Turkey Feathers",
@@ -129,18 +129,53 @@ FR.defaults = {
 		[23] = {
 			name= "Witch",
 			spellID = 279509,
-			enabled = true
+			enabled = true,
 		},
 		[24] = {
 			name= "Mohawk Grenade",
 			spellID = 58493,
-			enabled = true
+			enabled = true,
 		},
 		[25] = {
 			name= "Detoxified Blight",
 			spellID = 290224,
-			enabled = true
-		}
+			enabled = true,
+		},
+		[26] = {
+			name= "Sculpting Leather Finery",
+			spellID = 394001,
+			enabled = true,
+		},
+		[27] = {
+			name= "Spark of Madness",
+			spellID = 394003,
+			enabled = true,
+		},
+		[28] = {
+			name= "A Cultivator's Colors",
+			spellID = 394005,
+			enabled = true,
+		},
+		[29] = {
+			name= "Rockin' Mining Gear",
+			spellID = 394006,
+			enabled = true,
+		},
+		[30] = {
+			name= "A Production-Grade Display",
+			spellID = 394007,
+			enabled = true,
+		},
+		[31] = {
+			name= "A Looker's Charm",
+			spellID = 394008,
+			enabled = true,
+		},
+		[32] = {
+			name= "Dressed To Kill",
+			spellID = 394011,
+			enabled = true,
+		},
 	},
 	options = {
 		onLoginMessage = true,
