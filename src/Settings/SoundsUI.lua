@@ -57,14 +57,8 @@ function SoundsUI:InitializeOptions()
         local icon = "interface/icons/inv_misc_questionmark.blp"
 
         local spell = C_Spell.GetSpellInfo(SAMDB.SoundsToMute[k]["spellID"])
-        if spell then
-            icon = spell.iconID
-        end
-        if not spell then
-            local name2, icon2 = C_ToyBox.GetToyInfo(SAMDB.SoundsToMute[k]["spellID"])
-            local _, _, icon2 = C_ToyBox.GetToyInfo(SAMDB.SoundsToMute[k]["spellID"])
-            icon = icon2
-        end
+      
+        --C_ToyBox.GetToyInfo(SAMDB.SoundsToMute[k]["spellID"])
 
         local option = scrollChild:CreateFontString(nil, "ARTWORK", "GameFontHighlight")
         option:SetPoint("TOPLEFT", 16, yPos)
