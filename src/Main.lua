@@ -176,6 +176,12 @@ FR.defaults = {
 			spellID = 394011,
 			enabled = true,
 		},
+		[33] = {
+			name= "Bioluminescent",
+			spellID = 291118,
+			enabled = true,
+		},
+
 	},
 	options = {
 		onLoginMessage = true,
