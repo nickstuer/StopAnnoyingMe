@@ -181,7 +181,16 @@ FR.defaults = {
 			spellID = 291118,
 			enabled = true,
 		},
-
+		[34] = {
+			name = "Haunted",
+			spellID = 170950,
+			enabled = true,
+		},
+		[35] = {
+			name = "You're Next",
+			spellID = 390925,
+			enabled = true,
+		}
 	},
 	options = {
 		onLoginMessage = true,
