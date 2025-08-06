@@ -190,6 +190,11 @@ FR.defaults = {
 			name = "You're Next",
 			spellID = 390925,
 			enabled = true,
+		},
+		[36] = {
+			name = "Holy Retribution",
+			spellID = 254523,
+			enabled = true,
 		}
 	},
 	options = {
