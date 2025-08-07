@@ -195,6 +195,11 @@ FR.defaults = {
 			name = "Holy Retribution",
 			spellID = 254523,
 			enabled = true,
+		},
+		[37] = {
+			name = "Doomed Day",
+			spellID = 398585,
+			enabled = true,
 		}
 	},
 	options = {
