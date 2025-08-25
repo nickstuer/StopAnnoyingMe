@@ -220,6 +220,11 @@ FR.defaults = {
 			name = "Painted Blue",
 			spellID = 294249,
 			enabled = true,
+		},
+		[42] = {
+			name = "Turnip Paint Gun",
+			spellID = 127803,
+			enabled = true,
 		}
 	},
 	options = {
