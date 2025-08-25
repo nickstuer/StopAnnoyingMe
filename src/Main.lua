@@ -200,6 +200,26 @@ FR.defaults = {
 			name = "Doomed Day",
 			spellID = 398585,
 			enabled = true,
+		},
+		[38] = {
+			name = "Ken-Ken Mask",
+			spellID = 128328,
+			enabled = true,
+		},
+		[39] = {
+			name = "Painted Orange",
+			spellID = 294248,
+			enabled = true,
+		},
+		[40] = {
+			name = "Painted Green",
+			spellID = 294250,
+			enabled = true,
+		},
+		[41] = {
+			name = "Painted Blue",
+			spellID = 294249,
+			enabled = true,
 		}
 	},
 	options = {
