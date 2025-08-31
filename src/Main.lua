@@ -225,6 +225,16 @@ FR.defaults = {
 			name = "Turnip Paint Gun",
 			spellID = 127803,
 			enabled = true,
+		},
+		[43] = {
+			name = "Ethereal Empowerment",
+			spellID = 1237208,
+			enabled = true,
+		},
+		[44] = {
+			name = "Ethereal Empowerment2",
+			spellID = 1237202,
+			enabled = true,
 		}
 	},
 	options = {
