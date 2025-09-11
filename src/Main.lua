@@ -235,6 +235,16 @@ FR.defaults = {
 			name = "Ethereal Empowerment2",
 			spellID = 1237202,
 			enabled = true,
+		},
+		[45] = {
+			name = "Swarmed",
+			spellID = 318452,
+			enabled = true,
+		},
+		[46] = {
+			name = "Spiders!",
+			spellID = 225017,
+			enabled = true,
 		}
 	},
 	options = {
