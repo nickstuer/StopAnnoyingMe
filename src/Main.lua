@@ -245,6 +245,26 @@ FR.defaults = {
 			name = "Spiders!",
 			spellID = 225017,
 			enabled = true,
+		},
+		[47] = {
+			name = "Moonkin Feather",
+			spellID = 195802,
+			enabled = true,
+		},
+		[48] = {
+			name = "Moonkin Molting",
+			spellID = 195805,
+			enabled = true,
+		},
+		[49] = {
+			name = "Feeling Moonkin",
+			spellID = 195810,
+			enabled = true,
+		},
+		[50] = {
+			name = "Owlvercome wth the Fever",
+			spellID = 195816,
+			enabled = true,
 		}
 	},
 	options = {
