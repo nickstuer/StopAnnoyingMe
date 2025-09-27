@@ -265,6 +265,11 @@ FR.defaults = {
 			name = "Owlvercome wth the Fever",
 			spellID = 195816,
 			enabled = true,
+		},
+		[51] = {
+			name = "Moonfeather Fever",
+			spellID = 195776,
+			enabled = true,
 		}
 	},
 	options = {
