@@ -1,6 +1,6 @@
-## Interface: 110200
+## Interface: 110205
 ## Title: StopAnnoyingMe
-## Version: 1.1.8
+## Version: 1.1.9
 ## Author: Nick Stuer
 ## IconTexture: Interface\AddOns\StopAnnoyingMe\Media\Icon.tga
 
