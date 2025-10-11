@@ -19,7 +19,7 @@ function OptionsUI:InitializeOptions()
   	-- Create header and description
 	local title = panel:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
 	title:SetPoint("TOPLEFT", 16, yPos)
-	title:SetText("FriendAlerts")
+	title:SetText("StopAnnoyingMe")
 	title:SetTextColor(1, 0.84, 0)  -- Gold color for main title
 	yPos = yPos - 25
 
