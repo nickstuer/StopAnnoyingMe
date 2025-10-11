@@ -12,6 +12,7 @@ Core/Config.lua
 Core/Utils.lua
 Core/UIHelper.lua
 Settings/AboutUI.lua
+Settings/OptionsUI.lua
 Settings/SupportUI.lua
 Settings/SoundsUI.lua
 Settings/SpellsUI.lua
