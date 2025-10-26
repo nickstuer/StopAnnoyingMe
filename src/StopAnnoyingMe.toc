@@ -16,4 +16,5 @@ Settings/OptionsUI.lua
 Settings/SupportUI.lua
 Settings/SoundsUI.lua
 Settings/SpellsUI.lua
+Settings/MiscUI.lua
 Main.lua

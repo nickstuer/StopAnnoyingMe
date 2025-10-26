@@ -272,6 +272,9 @@ FR.defaults = {
 			enabled = true,
 		}
 	},
+	miscSettings = {
+		legionRemixQueuePopSound = true,
+	},
 	options = {
 		onLoginMessage = true,
 		manuallyBlockedSoundIDs = "",
@@ -339,6 +342,12 @@ initFrame:SetScript("OnEvent", function(self, event, arg1)
 							if FR.SupportUI and FR.SupportUI.Initialize then
 								FR.SupportUI:Initialize()
 							end
+
+							C_Timer.After(0.1, function()
+								if FR.MiscUI and FR.MiscUI.Initialize then
+									FR.MiscUI:Initialize()
+								end
+							end)
 						end)
 					end)
 				end)
@@ -375,6 +384,11 @@ initFrame:SetScript("OnEvent", function(self, event, arg1)
 			end
 		end
 
+		-- Check for legion remix queue pop sound setting
+		if SAMDB.miscSettings.legionRemixQueuePopSound then
+			MuteSoundFile(567478)
+		end
+
 		self:UnregisterEvent("PLAYER_ENTERING_WORLD")
     end
 end)
@@ -394,7 +408,25 @@ SlashCmdList["STOPANNOYINGME"] = function(msg)
 	Settings.OpenToCategory(addonName)
 end
 
+local function checkLFGStillActive()
+    if GetLFGProposal() then
+        print("|cff00ff00[QueueAlert]|r Your dungeon or raid queue is still up!")
+		PlaySoundFile(218932)
+    else
+        print("|cffff0000[QueueAlert]|r LFG queue expired or was declined.")
+    end
+end
 
+-- Misc Settings
+local f = CreateFrame("Frame")
+f:RegisterEvent("LFG_PROPOSAL_SHOW")
+f:SetScript("OnEvent", function(self, event, ...)
+    if event == "LFG_PROPOSAL_SHOW" and SAMDB.miscSettings.legionRemixQueuePopSound then
+        print("|cff00ff00[QueueAlert]|r Your dungeon or raid queue popped!")
+		C_Timer.After(3, checkLFGStillActive)
+        --PlaySound(8959) -- Optional sound effect
+    end
+end)
 
 -- Remove Buffs
 local InCombatLockdown, UnitBuff, CancelUnitBuff, print, select = InCombatLockdown, UnitBuff, CancelUnitBuff, print, select
