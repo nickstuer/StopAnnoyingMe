@@ -35,7 +35,7 @@ function MiscUI:InitializeOptions()
 
 	local subtitle = scrollChild:CreateFontString(nil, "ARTWORK", "GameFontHighlight")
 	subtitle:SetPoint("TOPLEFT", 16, yPos)
-	subtitle:SetText("Select which sounds to mute. Make sure to reload the UI after making changes.")
+	subtitle:SetText("Make sure to reload the UI after making changes.")
 	yPos = yPos - 25
 
 	-- Add separator
@@ -45,24 +45,44 @@ function MiscUI:InitializeOptions()
     -- SECTION: Mute Sounds
    local headerBNetFavorite1 = scrollChild:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
 	headerBNetFavorite1:SetPoint("TOPLEFT", 16, yPos)
-	headerBNetFavorite1:SetText("Legion Remix")
+	headerBNetFavorite1:SetText("Hearthstone Table Detector")
 	yPos = yPos - 25
 
     local option = scrollChild:CreateFontString(nil, "ARTWORK", "GameFontHighlight")
         option:SetPoint("TOPLEFT", 16, yPos)
-        option:SetText("Legion Remix Queue Pop Sound")
+        option:SetText("Print chat message")
 
 
     -- Checkbox
     local _, newY = UIHelper.CreateCheckbox(
         scrollChild,
-        "CheckboxLegionRemixQueuePopSound",
+        "CheckboxPrintHearthstoneTableMessage",
         "",
         300,
         yPos + 7,
-        SAMDB.miscSettings.legionRemixQueuePopSound,
+        SAMDB.miscSettings.printHearthstoneTableMessage,
         function(self)
-            SAMDB.miscSettings.legionRemixQueuePopSound = self:GetChecked()
+            SAMDB.miscSettings.printHearthstoneTableMessage = self:GetChecked()
+        end
+    )
+
+    yPos = newY - 8
+
+    local option2 = scrollChild:CreateFontString(nil, "ARTWORK", "GameFontHighlight")
+        option2:SetPoint("TOPLEFT", 16, yPos)
+        option2:SetText("Announce /emote")
+
+
+    -- Checkbox
+    local _, newY = UIHelper.CreateCheckbox(
+        scrollChild,
+        "CheckboxEmoteHearthstoneTableMessage",
+        "",
+        300,
+        yPos + 7,
+        SAMDB.miscSettings.emoteHearthstoneTableMessage,
+        function(self)
+            SAMDB.miscSettings.emoteHearthstoneTableMessage = self:GetChecked()
         end
     )
 
