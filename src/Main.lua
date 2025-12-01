@@ -316,6 +316,24 @@ initFrame:SetScript("OnEvent", function(self, event, arg1)
 				SAMDB.SoundsToMute[k] = FR.defaults.SoundsToMute[k]
 			end
 		end
+
+		for k, v in pairs(FR.defaults.miscSettings) do
+			if SAMDB.miscSettings[k] == nil then
+				SAMDB.miscSettings[k] = FR.defaults.miscSettings[k]
+			end
+		end
+
+		for k, v in pairs(FR.defaults.options) do
+			if SAMDB.options[k] == nil then
+				SAMDB.options[k] = FR.defaults.options[k]
+			end
+		end
+
+		for k, v in pairs(FR.defaults.config) do
+			if SAMDB.config[k] == nil then
+				SAMDB.config[k] = FR.defaults.config[k]
+			end
+		end
 		
 
 		C_Timer.After(0.2, function()
@@ -453,3 +471,26 @@ end)
 
 removeBuff:RegisterEvent("UNIT_AURA")
 removeBuff:RegisterEvent("PLAYER_REGEN_ENABLED")
+
+-- Hearthstone Table Detection
+local hearthstoneTable = CreateFrame("Frame")
+
+hearthstoneTable:SetScript("OnEvent", function(self, event, unit, castGUID, spellID)
+    -- Debug: print all spell casts to find the right ID
+    -- if spellID then
+    --    local spellInfo = C_Spell.GetSpellInfo(spellID)
+    --    local spellName = spellInfo and spellInfo.name or "unknown"
+    --    Utils.Print("UNIT_SPELLCAST_SUCCEEDED: " .. (UnitName(unit) or "unknown") .. " cast " .. spellName .. " (ID: " .. spellID .. ")")
+    -- end
+    
+    if event == "UNIT_SPELLCAST_SUCCEEDED" and not InCombatLockdown() then
+        if spellID == 430884 then
+            local unitName = UnitName(unit)
+            if unitName then
+                SendChatMessage("uses StopAnnoyingMe and saw " .. unitName .. " summoned a Hearthstone Table!", "EMOTE")
+            end
+        end
+    end
+end)
+
+hearthstoneTable:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
