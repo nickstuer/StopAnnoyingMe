@@ -1,0 +1,9 @@
+ignore:
+  - .git
+  - .github
+  - .gitignore
+  - .vscode
+  - dist
+  - build.sh
+  - deploy.sh
+  - .DS_Store
