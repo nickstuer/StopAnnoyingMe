@@ -460,9 +460,12 @@ hearthstoneTable:SetScript("OnEvent", function(self, event, unit, castGUID, spel
     -- end
     
     if event == "UNIT_SPELLCAST_SUCCEEDED" and not InCombatLockdown() then
+		if issecretvalue(spellID) then
+			return
+		end
         if spellID == 430884 then
             local unitName = UnitName(unit)
-            if unitName then
+            if unitName and not issecretvalue(unitName) then
 
 				if SAMDB.miscSettings.printHearthstoneTableMessage then
 					Utils.Print(unitName .. " summoned a Hearthstone Table!")
