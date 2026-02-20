@@ -428,26 +428,22 @@ local InCombatLockdown, UnitBuff, CancelUnitBuff, print, select = InCombatLockdo
 local removeBuff = CreateFrame("Frame")
 
 removeBuff:SetScript("OnEvent", function(self, event, unit)
-    if ((event == "PLAYER_REGEN_ENABLED") or (unit == "player")) and (not InCombatLockdown()) then
-        local i = 1
-        local aura = C_UnitAuras.GetBuffDataByIndex("player", i)
-        while aura do
-			if (InCombatLockdown()) then
-				break
-            end
-            if buffsToRemove[aura.spellId] then
-                CancelUnitBuff("player", i)
+    if InCombatLockdown() then return end
+    if (event == "PLAYER_REGEN_ENABLED") or (unit == "player") then
+        for i = 1, 40 do
+            local aura = C_UnitAuras.GetBuffDataByIndex("player", i)
+            if not aura then break end
+            local sid = aura.spellId
 
-				local auraInfo = C_UnitAuras.GetPlayerAuraBySpellID(aura.spellId)
-                Utils.Debug("|cFFFFFF00[RemoveBuff]|r " .. auraInfo.name .. " removed.")
-                break
+            if not issecretvalue(sid) then
+                if buffsToRemove[sid] then
+                    CancelUnitBuff("player", i)
+                    break 
+                end
             end
-            i = i + 1
-            aura = C_UnitAuras.GetBuffDataByIndex("player", i)
         end
     end
 end)
-
 removeBuff:RegisterEvent("UNIT_AURA")
 removeBuff:RegisterEvent("PLAYER_REGEN_ENABLED")
 
