@@ -432,6 +432,9 @@ removeBuff:SetScript("OnEvent", function(self, event, unit)
         local i = 1
         local aura = C_UnitAuras.GetBuffDataByIndex("player", i)
         while aura do
+			if (InCombatLockdown()) then
+				break
+            end
             if buffsToRemove[aura.spellId] then
                 CancelUnitBuff("player", i)
 
